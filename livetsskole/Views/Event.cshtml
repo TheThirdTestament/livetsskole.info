@@ -31,50 +31,51 @@
                 <h1>@Model.Title</h1>
             }
 
-            @if (Model.Subtitle != null && Model.Subtitle.ToString().Length > 5)
-            {
-                <h2>@Model.Subtitle</h2>
+            <p>
+                @if (Model.Subtitle != null && Model.Subtitle.ToString().Length > 5)
+                {
+                    @Model.Subtitle<br />
+                }
+
+                @if (Model.Lecturer != null && Model.Lecturer.ToString().Length > 5)
+                {
+                    @("/v " + Model.Lecturer)
             }
-
-            @if (Model.Lecturer != null && Model.Lecturer.ToString().Length > 5)
-            {
-                <h3 style="padding-bottom:1em">/v @Model.Lecturer</h3>
-            }
+            </p>
 
 
+                @if (Model.Time != null && Model.Time.ToString().Length > 5)
+                {
+                    <p>@Model.Starttime.ToString("D", new CultureInfo("da-DK")), @Model.Time</p>
+                }
 
-            @if (Model.Time != null && Model.Time.ToString().Length > 5)
-            {
-                <p>@Model.Starttime.ToString("D", new CultureInfo("da-DK")), @Model.Time</p>
-            }
+                @if (Model.Location != null && Model.Location.ToString().Length > 5)
+                {
+                    @Html.Raw(Model.Location);
+                }
 
-            @if (Model.Location != null && Model.Location.ToString().Length > 5)
-            {
-                @Html.Raw(Model.Location);
-            }
-
-            @if (!Model.Town.ToString().IsNullOrWhiteSpace())
+                @*@if (!Model.Town.ToString().IsNullOrWhiteSpace())
             {
                 <span>@Model.Town.</span>
             }
             else
             {
                 <span>2605 Brøndby.</span>
-            }
+            }*@
 
-            @if (Model.Comment != null && Model.Comment.ToString().Length > 5)
-            {
-                <p>@Model.Comment</p>
-            }
+                @if (Model.Comment != null && Model.Comment.ToString().Length > 5)
+                {
+                    <p>@Model.Comment</p>
+                }
 
-            @if (Model.VideoLink != null && Model.VideoLink.ToString().Length > 5)
-            {
-                <p><a href="@Model.VideoLink.Url" target="@Model.VideoLink.Target" class="link">@Model.VideoLink.Name<span></span></a></p>
-            }
+                @if (Model.VideoLink != null && Model.VideoLink.ToString().Length > 5)
+                {
+                    <p><a href="@Model.VideoLink.Url" target="@Model.VideoLink.Target" class="link">@Model.VideoLink.Name<span></span></a></p>
+                }
 
-            <p><a href="@Model.Parent.Url">Til arrangementsoversigten</a></p>
+                <p><a href="@Model.Parent.Url">Til arrangementsoversigten</a></p>
 
-        </div>
+            </div>
         <div class="col-md-4" style="margin-bottom:2em;">
             @if (Model.Widgets != null && Html.GetGridHtml(Model, "widgets").ToString().Length > 5)
             {

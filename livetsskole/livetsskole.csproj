@@ -462,6 +462,8 @@
     <Content Include="App_Code\StringExtensions.cs" />
     <Compile Include="Controllers\ContactFormSurfaceController.cs" />
     <Compile Include="Controllers\NewsletterFormSurfaceController.cs" />
+    <Compile Include="Models\EventConstants.cs" />
+    <Compile Include="Models\EventImage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\ContactMessage.cs" />
     <Compile Include="ViewModels\NewsletterRegistration.cs" />
